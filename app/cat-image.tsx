@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { fetchImage } from "./fetch-image"
 
 type CatImageProps = {
@@ -19,7 +20,7 @@ export function CatImage({ url }: CatImageProps){
   return (
     <div>
       <button onClick={refreshImage}>他の猫を見る</button>
-      { imageUrl && <img src={imageUrl} /> }
+      { imageUrl && <Image src={imageUrl} alt="random cat" width={500} height={500} /> }
     </div>
   )
 }
