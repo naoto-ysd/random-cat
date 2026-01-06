@@ -1,3 +1,4 @@
+import { CatImage } from "./cat-image"
 import { connection } from "next/server"
 import { fetchImage } from "./fetch-image"
 
@@ -5,7 +6,5 @@ export default async function Home() {
   await connection()
 
   const image = await fetchImage()
-  console.log("Home: 画像情報を取得しました", image.name)
-
-  return <div>猫画像</div>
+  return <CatImage url={image.url} />
 }
